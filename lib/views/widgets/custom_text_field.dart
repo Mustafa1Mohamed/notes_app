@@ -20,10 +20,10 @@ class CustomTextField extends StatelessWidget {
     );
   }
 
-  OutlineInputBorder buildBorder([Color]) {
+  OutlineInputBorder buildBorder([value]) {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide:  BorderSide(color:Color ?? Colors.white)
+        borderSide:  BorderSide(color:value ?? Colors.white)
       );
   }
 }
