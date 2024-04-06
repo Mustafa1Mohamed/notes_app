@@ -4,6 +4,7 @@ import 'package:notes_app/cubits/notes_cubits/notes_cubit_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/widgets/custom_app_bar.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
+import 'package:notes_app/views/widgets/edit_note_color_listview.dart';
 
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({super.key, required this.note});
@@ -21,10 +22,10 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
+      child: ListView(
         children: [
           const SizedBox(
-            height: 50,
+            height: 40,
           ),
           CustomAppBar(
             onPressed: () {
@@ -38,7 +39,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             icon: Icons.check,
           ),
           const SizedBox(
-            height: 50,
+            height: 30,
           ),
           CustomTextField(
             onChanged: (value) {
@@ -55,7 +56,13 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             },
             hint: widget.note.subtitle,
             maxlines: 5,
-          )
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          EditNoteColorsList(
+            note: widget.note,
+          ),
         ],
       ),
     );
