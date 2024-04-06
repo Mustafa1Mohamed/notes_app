@@ -5,6 +5,7 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/widgets/colors_list_view.dart';
 import 'package:notes_app/views/widgets/custom_button.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
+import 'package:notes_app/views/widgets/flash_message.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
@@ -70,6 +71,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
                   }
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: FlashMessage(),
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                    ),
+                  );
                 },
               );
             },
